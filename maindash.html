@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Cube - Main Dashboard</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap">
+
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+            text-align: left; /* Updated: Titles aligned left */
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 100%; /* Ensures the images resize well */
+        }
+
+        p, ul, li {
+            margin-bottom: 16px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 40px;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .troubleshooting ul {
+            list-style-type: circle;
+        }
+
+        /* Sidebar adjustments */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 30px; /* Adjusted for narrower width */
+            width: 160px; /* Reduced the sidebar width */
+            height: 100%;
+            background: transparent; /* Transparent background */
+            padding-top: 60px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 30px; /* Increased vertical space between items */
+        }
+
+        .sidebar ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            color: #007bff; /* Blue hover effect */
+        }
+
+        /* Content padding */
+        .content {
+            margin-left: 200px; /* Adjusted to give space for TOC */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="#table-overview">Table Overview</a></li>
+            <li><a href="#audit-results">Audit Results</a></li>
+            <li><a href="#advanced-search">Advanced Search</a></li>
+            <li><a href="#visualization-tools">Visualization Tools</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <h1>Audit Cube - Main Dashboard</h1>
+
+        <section id="table-overview">
+            <h2>Table Overview</h2>
+            <p>The main dashboard is organized in a table format that displays essential information such as Tracking Number, Shipment ID, Shipment Date, Total Packages, Total Shipment Charges, Tracking Status, Invoice Number, Invoice Date, and Invoice Amount.</p>
+            <img src="file:///Users/neeza/Downloads/html%20docs/audit%20dash%20main%20view.png" alt="Audit Dashboard Main View">
+        </section>
+
+        <section id="audit-results">
+            <h2>Audit Results (Blue Paper Icon)</h2>
+            <p>Located on the far left of the table, the blue paper icon takes users to the detailed audit results page for each shipment. This page provides a comprehensive breakdown of the shipment details, including shipper and recipient addresses, service codes, and other relevant data.</p>
+            <img src="file:///Users/neeza/Downloads/html%20docs/auditresults.png" alt="Audit Results Icon">
+        </section>
+
+        <section id="advanced-search">
+            <h2>Advanced Search (Magnifying Glass Icon)</h2>
+            <p>The search icon allows users to perform advanced searches across various parameters such as Tracking Number, Shipment ID, Invoice Number, Dispute ID, Shipment Date, and more.This feature enables users to quickly find specific records or filter the table to display only relevant data. You can also click a specific tracking or invoice number on the table to see its details. </p>
+            <img src="file:///Users/neeza/Downloads/html%20docs/magnifying%20glass.png" alt="Magnifying Glass Icon">
+        </section>
+
+        <section id="export-excel">
+            <h2>Export to Excel</h2>
+            <p>Positioned next to the search icon, the Excel icon allows users to export the table data into a Microsoft Excel spreadsheet. This is particularly useful for users who need to perform offline analysis or share data with other stakeholders.</p>
+            <img src="file:///Users/neeza/Downloads/html%20docs/exporttoexcel.png" alt="Export to Excel" width="300">
+        </section>
+        
+        <section id="column-configurator">
+            <h2>Column Configurator</h2>
+            <p>The Column Configurator tool enables users to customize their table view by hiding or displaying specific columns. This feature is valuable for users who need to focus on particular data points without the distraction of unnecessary information.</p>
+            <img src="file:///Users/neeza/Downloads/html%20docs/columnconfigurator.png" alt="Column Configurator" width="300">
+        </section>
+        
+        <section id="visualization-tools">
+            <h2>Visualization Tools & Insights</h2>
+            <h3>Freight Spend Per Month</h3>
+            <p>A chart that summarizes the freight spend for the selected period, providing insights into monthly trends. Users can view their total freight spend and compare it across different months. </p>
+
+            <h3>Audit Status Summary</h3>
+            <p>Displays the status of invoices and shipments, showing the percentage of packages that have been audited and approved, are awaiting invoice, or have discrepancies.  This visualization helps users quickly identify areas that need attention. </p>
+
+            <h3>Auto Match Status</h3>
+            <p>A doughnut chart that indicates the percentage of records that have been automatically matched, providing a quick overview of the audit accuracy and reducing manual workload.</p>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>Troubleshooting</h2>
+
+            <h3>Data Not Loading Properly</h3>
+            <ul>
+                <li><b>Issue:</b> If the data within the dashboard fails to load, this might be due to a slow network connection or a temporary issue with the platform.</li>
+                <li><b>Solution:</b> 
+                    <ul>
+                        <li>Refresh the Page: Start by refreshing the page to see if the data loads correctly.</li>
+                        <li>Check Network Connection: Ensure that your internet connection is stable.</li>
+                        <li>Clear Browser Cache: Sometimes, cached data may cause loading issues. Clearing your browser’s cache can help resolve this.</li>
+                        <li>Contact Support: If the issue persists, contact technical support for further assistance.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Advanced Search Not Returning Expected Results</h3>
+            <ul>
+                <li><b>Issue:</b> When using the Advanced Search feature, you may not get the results you expected, which could be due to incorrect search parameters or filters.</li>
+                <li><b>Solution:</b> 
+                    <ul>
+                        <li>Double-Check Parameters: Ensure that all search parameters are entered correctly.</li>
+                        <li>Clear Filters: If multiple filters are applied, clear them and reapply one at a time.</li>
+                        <li>Broaden Search Criteria: Try broadening the search to capture more relevant data.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Export Issues (Excel Export Not Working)</h3>
+            <ul>
+                <li><b>Issue:</b> Unable to export the table data to Excel.</li>
+                <li><b>Solution:</b> 
+                    <ul>
+                        <li>Try a Different Browser: Sometimes, certain browsers block pop-ups or downloads.</li>
+                        <li>Check Pop-up Blockers: Ensure your browser’s pop-up blocker isn’t preventing the download.</li>
+                        <li>Check File Size Limits: Large datasets might cause export issues. Try exporting smaller subsets of data.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+</body>
+</html>
