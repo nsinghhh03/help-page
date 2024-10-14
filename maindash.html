@@ -22,15 +22,18 @@
             color: #888;
             margin-bottom: 20px;
             text-align: left; /* Ensure breadcrumb is aligned left above title */
+            position: relative;
+            z-index: 10;
         }
 
         .breadcrumb a {
-            color: #3a86ff;
+            color: inherit; /* Inherit the default text color unless hovered */
             text-decoration: none;
         }
 
         .breadcrumb a:hover {
             text-decoration: underline;
+            color: #3a86ff; /* Add the blue color only on hover */
         }
 
         h1, h2, h3 {
@@ -59,6 +62,7 @@
         }
 
         /* Sidebar adjustments */
+    
         .sidebar {
             position: fixed;
             top: 0;
@@ -66,6 +70,15 @@
             width: 240px;
             height: 100%;
             padding-top: 60px;
+        }
+
+        .sidebar .overview-link {
+            font-size: 18px;  /* Increase font size */
+            padding-left: 30px;  /* Add more padding to move it slightly to the right */
+            font-weight: 600;  /* Make it a bit bolder */
+            color: #3a86ff;
+            display: block;
+            margin-bottom: 10px;
         }
 
         .sidebar ul {
@@ -95,7 +108,7 @@
             font-weight: 600;
             color: #3a86ff;
             margin-bottom: 10px;
-            padding-left: 0; /* Titles not indented */
+            padding-left: 0;
         }
 
         .active-section {
@@ -132,19 +145,21 @@
 
     <!-- Breadcrumb Navigation -->
     <div class="breadcrumb">
-        Cubes > <a href="#">Audit Cube</a> > Audit Cube Main Dashboard
+        <a href="index.html">Home</a> > <a href="audit-cube-user-guide.html" style="color: inherit;">Audit Cube User Guides</a> > <span>Audit Cube Main Dashboard</span>
     </div>
-
+    
     <!-- Sidebar -->
     <div class="sidebar">
         <ul>
+            <li><a href="audit-cube-user-guide.html" class="section-title">Overview</a></li>
+        
             <li><span class="section-title">Main Dashboard</span></li>
             <li><a href="#table-overview" class="active-section">Table Overview</a></li>
             <li><a href="#audit-results">Audit Results</a></li>
             <li><a href="#advanced-search">Advanced Search</a></li>
             <li><a href="#visualization-tools">Visualization Tools</a></li>
             <li><a href="#troubleshooting">Troubleshooting</a></li>
-            <li><span class="section-title">Shipment Dashboard</span></li>
+            <li><a href="shipmentdash.html" class="section-title">Shipment Dashboard</a></li>
             <li><a href="shipmentdash.html">Shipment Table</a></li>
             <li><a href="shipmentdash.html#uploading-files">Uploading Shipment Files</a></li>
             <li><a href="shipmentdash.html#refreshing-data">Refreshing Data</a></li>
