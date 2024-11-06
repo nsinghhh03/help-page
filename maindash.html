@@ -164,6 +164,13 @@
             <li><a href="shipmentdash.html#uploading-files">Uploading Shipment Files</a></li>
             <li><a href="shipmentdash.html#refreshing-data">Refreshing Data</a></li>
             <li><a href="shipmentdash.html#viewing-data">Viewing & Filtering Data</a></li>
+            <li><span class="section-title">Invoice Dashboard</span></li>
+            <li><a href="invoicedash.html" class="active-section">Invoice Table Overview</a></li>
+            <li><a href="invoicedash.html#self-help-options">Self-Help Options</a></li>
+            <li><a href="invoicedash.html#toolbar-menu">Toolbar Menu</a></li>
+            <li><a href="invoicedash.html#invoice-upload">Invoice Upload</a></li>
+            <li><a href="invoicedash.html#filtering-sorting">Filtering and Sorting</a></li>
+            <li><a href="invoicedash.html#troubleshooting">Troubleshooting Tips</a></li>
         </ul>
     </div>
 
@@ -263,16 +270,24 @@
         // Highlight the active section dynamically while scrolling
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".sidebar ul li a");
-
+    
         window.addEventListener("scroll", () => {
             let current = "";
+            const topPosition = 100; // Adjust this value if needed
+    
+            if (window.scrollY < topPosition) {
+                // Remove all highlights when at the very top
+                navLinks.forEach(link => link.classList.remove("active-section"));
+                return;
+            }
+    
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 if (pageYOffset >= sectionTop - 50) {
                     current = section.getAttribute("id");
                 }
             });
-
+    
             navLinks.forEach(link => {
                 link.classList.remove("active-section");
                 if (link.getAttribute("href").includes(current)) {
