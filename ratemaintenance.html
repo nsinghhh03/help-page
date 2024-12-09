@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Maintenance User Guide</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Breadcrumb navigation styling */
+        .breadcrumb {
+            font-size: 14px;
+            color: #888; /* Default color for breadcrumb text */
+            margin-bottom: 20px;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Breadcrumb link default state */
+        .breadcrumb a {
+            color: inherit; /* Inherit the default breadcrumb color (#888) */
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Breadcrumb link hover state */
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #3a86ff; /* Change to blue only on hover */
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            max-width: 60%;
+        }
+
+        p, ul, li {
+            margin-bottom: 16px;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Sidebar adjustments */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 20px;
+            width: 240px;
+            height: 100%;
+            padding-top: 60px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #3a86ff #f1f1f1;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+            font-size: 16px;
+            padding-left: 20px;
+        }
+
+        .sidebar ul li a:hover {
+            color: #007bff;
+        }
+
+        .sidebar ul li .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #3a86ff;
+            margin-bottom: 10px;
+            padding-left: 0;
+        }
+
+        .active-section {
+            background-color: rgba(58, 134, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Content padding */
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .content h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .content h2 {
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .content h3 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> > <a href="rate-cube-user-guide.html">Rate Cube User Guides</a> > <span>Rate Maintenance</span>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="rate-cube-user-guide.html" class="section-title">Overview</a></li>
+            <li><span class="section-title">Rate Maintenance</span></li>
+            <li><a href="ratemaintenance.html">Overview</a></li>
+            <li><a href="#key-features">Key Features</a></li>
+            <li><a href="#viewing-rates">Viewing Rates</a></li>
+            <li><a href="#uploading-rates">Uploading Rates</a></li>
+            <li><a href="#editing-rates">Editing Rates</a></li>
+            <li><a href="#bulk-upload">Bulk Upload</a></li>
+            <li><a href="#contract-details">Contract Details</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><span class="section-title">Rate Simulation</span></li>
+            <li><a href="ratesimulation.html#overview" class="sidebar-link">Overview</a></li>
+            <li><a href="ratesimulation.html#location-information" class="sidebar-link">Location Information</a></li>
+            <li><a href="ratesimulation.html#adding-shipment-details" class="sidebar-link">Adding Shipment Details</a></li>
+            <li><a href="ratesimulation.html#using-special-services" class="sidebar-link">Using Special Services</a></li>
+            <li><a href="ratesimulation.html#generating-simulations" class="sidebar-link">Generating Simulations</a></li>
+            <li><a href="ratesimulation.html#customizing-results" class="sidebar-link">Customizing Results</a></li>
+            <li><a href="ratesimulation.html#successful-rate-simulation" class="sidebar-link">Successful Rate Simulation</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Rate Maintenance User Guide</h1>
+    
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>The Rate Maintenance dashboard in RateCube is designed to manage carrier rates across multiple transportation modes, such as air, ocean, and road logistics. The module allows users to upload rates in bulk, edit them in an Excel-like grid view, validate data, and ensure the timely updating of rates with clear tracking mechanisms. This tool simplifies the management of global freight rates while ensuring data accuracy through validation and intuitive interfaces.</p>
+            <ul>
+                <li>Centralized management of carrier rates.</li>
+                <li>Real-time rate validation and error handling.</li>
+                <li>Bulk uploads and direct row-level editing.</li>
+                <li>Simplified tracking of rate validity periods.</li>
+            </ul>
+            <img src="img/ratemaintenancedash.png" alt="Rate Maintenance Dashboard">
+        </section>
+    
+        <section id="key-features">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>Contract ID:</strong> A unique identifier for each rate entry. Clicking the ID navigates to detailed contract information, such as carrier, terms, and historical changes.</li>
+                <li><strong>Template Name:</strong> Select predefined rate templates such as GT Air or GT Ocean for seamless organization of rates by category.</li>
+                <li><strong>Carrier Code and Description:</strong> Displays carrier identification, ensuring clarity in rate assignment.</li>
+                <li><strong>Status:</strong> Indicates the rate’s progress (e.g., Draft, Active, Expired).</li>
+                <li><strong>Validity Period:</strong> Shows the "Valid From" and "Valid To" dates to ensure proper tracking of rate expiration.</li>
+                <li><strong>Upload and Modification Details:</strong> Tracks who uploaded and updated rates, including timestamps for better accountability.</li>
+                <li><strong>Advanced Search and Filter Options:</strong> Enables users to filter rates by criteria such as template name, status, and carrier.</li>
+                <li><strong>Export and Upload Options:</strong> Includes bulk upload for seamless data imports and export tools for downloading rate records.</li>
+                <li><strong>Visualization and Metrics:</strong> Provides visual insights like pie charts (e.g., record approval status) and rate count summaries by categories like country total or rate total.</li>
+            </ul>
+        </section>
+    
+        <section id="viewing-rates">
+            <h2>Viewing Rates</h2>
+            <p>Navigate to the Rate Maintenance module.</p>
+            <ul>
+                <li>Select a rate template from the dropdown menu (e.g., NA, GT Air, GT Ocean).</li>
+                <li>Use the Grid View or Item View options to toggle between layouts.</li>
+                <ul>
+                    <li><strong>Grid View:</strong> Offers a spreadsheet-style view for bulk updates.</li>
+                    <li><strong>Item View:</strong> Displays detailed rate information for individual rows.</li>
+                </ul>
+            </ul>
+            <img src="img/rateupload.png" alt="Viewing Rates">
+        </section>
+    
+        <section id="uploading-rates">
+            <h2>Uploading Rates</h2>
+            <ul>
+                <li>Click the <strong>Upload</strong> button.</li>
+                <li>Select the appropriate template format (e.g., NA, GT Air, GT Ocean).</li>
+                <li>Browse for the Excel/CSV file containing the rates.</li>
+                <li>Click <strong>Submit</strong> to upload the file.</li>
+                <li>Review the Rate Upload Summary to verify successful processing.</li>
+            </ul>
+            <img src="img/editrates.png" alt="Uploading Rates">
+        </section>
+    
+        <section id="editing-rates">
+            <h2>Editing Rates</h2>
+            <ul>
+                <li>Double-click on a row in the Grid View to enable editing.</li>
+                <li>Update the fields (e.g., carrier account, rate amount, validity period).</li>
+                <li>Click <strong>Save</strong> to apply changes.</li>
+                <li>Use the bulk edit option for multiple rows by selecting checkboxes and applying changes collectively.</li>
+            </ul>
+            <img src="img/bulkupload.png" alt="Editing Rates">
+        </section>
+    
+        <section id="bulk-upload">
+            <h2>Bulk Upload: Simplifying Rate Updates</h2>
+            <p>The Bulk Upload functionality in Rate Maintenance allows users to upload multiple rates simultaneously, streamlining the process of updating rate data for Air, Ocean, and Road shipments. Using standardized templates, users can efficiently input large amounts of data, minimizing manual entry errors.</p>
+            <h3>Steps for Bulk Upload</h3>
+            <ul>
+                <li><strong>Access the Rate Maintenance Module:</strong> Navigate to RateCube and select Rate Maintenance from the sidebar.</li>
+                <li><strong>Choose Template:</strong> Select the required template for the upload from the dropdown menu (e.g., NA, GT Air, or GT Ocean).</li>
+                <li><strong>Prepare the File:</strong> Populate the Excel or CSV template with the rates to be uploaded, ensuring all required fields are complete.</li>
+                <li><strong>Upload the File:</strong> Click the <strong>Upload</strong> button and select the prepared file.</li>
+                <li><strong>Submit the file for processing.</strong></li>
+                <li><strong>Validate and Review:</strong> After submission, RateCube validates the file. A summary report will indicate:</li>
+                <ul>
+                    <li>Successfully uploaded records.</li>
+                    <li>Any errors that need correction.</li>
+                </ul>
+                <li><strong>Error Correction:</strong> If errors occur, download the error log, correct the issues, and re-upload the file.</li>
+            </ul>
+            <img src="img/ratefileupload.png" alt="Bulk Upload">
+            <img src="img/confirmbulkupload.png" alt="Confirm Bulk Upload">
+        </section>
+    
+        <section id="contract-details">
+            <h2>Contract Details View</h2>
+            <p>When a user clicks on a Contract ID in the Rate Maintenance dashboard, they are directed to the Contract Details View, which provides a comprehensive breakdown of all rates associated with that specific contract. This view enables users to analyze, edit, and manage rates while tracking important metrics and maintaining data integrity.</p>
+            <h3>Header Information</h3>
+            <p>The top section displays key contract metadata, including:</p>
+            <ul>
+                <li><strong>Validity Period:</strong> Defines the start and end dates for the contract.</li>
+                <li><strong>OFA Reference:</strong> A unique identifier assigned to the contract for tracking purposes.</li>
+                <li><strong>Uploaded By:</strong> Shows the user who uploaded the contract and the corresponding timestamp for accountability.</li>
+            </ul>
+            <h3>Rate Table Overview</h3>
+            <p>The central table provides a detailed view of each rate in the contract, featuring columns for key rate attributes such as version, unique ID, base rate, surcharges, origin and destination cities, commodity type, and service level. Each rate entry is color-coded for easy identification of its current status (e.g., Accepted, Rejected, Revised, etc.).</p>
+            <img src="img/contractview.png" alt="Contract Details">
+        </section>
+    
+        <section id="troubleshooting">
+            <h2>Troubleshooting Section for Rate Maintenance in RateCube</h2>
+            <p>This troubleshooting guide addresses common issues encountered in the Rate Maintenance dashboard and provides detailed solutions based on real-world scenarios documented in the provided materials. It focuses on error handling, ensuring seamless rate uploads, validations, and contract amendments.</p>
+        
+            <h3>1. File Upload Issues</h3>
+            <p><strong>Problem:</strong> File upload fails or results in an error message.</p>
+            <p><strong>Potential Causes:</strong></p>
+            <ul>
+                <li>File format mismatch (e.g., using .xlsx instead of .csv).</li>
+                <li>Incorrect template selection (e.g., NA template for GT Air rates).</li>
+                <li>Missing mandatory fields in the rate file.</li>
+            </ul>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>Verify Template Compatibility:</strong> Ensure the template corresponds to the rate type (e.g., GT Air, NA).</li>
+                <li><strong>Check Mandatory Fields:</strong> Validate that required columns like Carrier, Rate, Validity Period, and Service Level are populated.</li>
+                <li><strong>Correct File Format:</strong> Convert the file to .csv or .xlsx as required.</li>
+                <li><strong>Retry Upload:</strong> Use the Upload button in the dashboard, select the correct file, and re-submit.</li>
+                <li><strong>Review Validation Summary:</strong> Analyze error logs generated by the system, correct errors, and re-upload.</li>
+            </ul>
+        
+            <h3>2. Data Validation Errors</h3>
+            <p><strong>Problem:</strong> Uploaded file passes initial checks but fails validation for specific rows.</p>
+            <p><strong>Potential Causes:</strong></p>
+            <ul>
+                <li>Overlapping validity dates for the same carrier or lane.</li>
+                <li>Invalid data types in fields (e.g., text in numeric fields).</li>
+                <li>Conflicts with existing rates or templates.</li>
+            </ul>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>Review Validation Summary:</strong> After upload, check the detailed error log generated by RateCube.</li>
+                <li><strong>Correct Errors:</strong> Open the original file, locate highlighted rows, and address specific issues.</li>
+                <li><strong>Common Fixes:</strong> Adjust conflicting validity dates, ensure numeric fields (e.g., Rate) contain only numbers.</li>
+                <li><strong>Re-Upload:</strong> Once corrected, re-submit the file.</li>
+            </ul>
+        
+            <h3>3. Amendment Errors</h3>
+            <p><strong>Problem:</strong> Errors occur during Partial or Full Amendment processes.</p>
+            <p><strong>Potential Causes:</strong></p>
+            <ul>
+                <li>Invalid updates to mandatory fields (e.g., leaving the Base Rate blank).</li>
+                <li>Conflicting changes between Partial and Full Amendment actions.</li>
+            </ul>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>Full Amendment Fix:</strong> Ensure all fields are filled accurately before submitting.</li>
+                <li><strong>Review amendment messages like "Amendment Successful" to confirm the process.</li>
+                <li><strong>Partial Amendment Fix:</strong> Select specific rows or lanes, verify the validity of edits, and confirm changes.</li>
+                <li><strong>Validation Post-Amendment:</strong> Use the Review button to confirm the data integrity of the amendment. Resolve flagged errors before final submission.</li>
+            </ul>
+        
+            <h3>4. Export and Advanced Search Issues</h3>
+            <p><strong>Problem:</strong> Exported files are incomplete, or Advanced Search fails to display results.</p>
+            <p><strong>Potential Causes:</strong></p>
+            <ul>
+                <li>Filters applied incorrectly or in conflict.</li>
+                <li>Large datasets causing performance lags.</li>
+            </ul>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>Reset Filters:</strong> Clear all filters and reapply specific search criteria.</li>
+                <li><strong>Refine Search:</strong> Use targeted attributes (e.g., Contract ID, Carrier, Validity Period).</li>
+                <li><strong>Export Smaller Batches:</strong> Apply filters to narrow data before exporting to minimize file size.</li>
+                <li><strong>Browser Settings:</strong> Enable pop-ups and allow downloads from RateCube.</li>
+            </ul>
+        
+            <h3>5. Contract Lane Management Errors</h3>
+            <p><strong>Problem:</strong> Errors appear when managing contract lanes (e.g., Accept, Reject, Revise).</p>
+            <p><strong>Potential Causes:</strong></p>
+            <ul>
+                <li>Missing required updates for rejected lanes.</li>
+                <li>Invalid data entry during revision.</li>
+            </ul>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>Lane Rejection:</strong> For rejected lanes, ensure valid corrections are made before clicking Revise.</li>
+                <li><strong>Revision and Resubmission:</strong> Update fields like Base Rate or Fuel Surcharge accurately before resubmission.</li>
+                <li><strong>Validation Before Submission:</strong> Validate updated rates using the Rate Details view to ensure compliance.</li>
+                <li><strong>Amendment Tracking:</strong> Ensure unique amendment numbers are generated and linked correctly.</li>
+            </ul>
+        
+            <h3>6. OFA and RFA Process Issues</h3>
+            <p><strong>Problem:</strong> Issues arise when managing Offers for Amendment (OFA) or Requests for Amendment (RFA).</p>
+            <p><strong>Potential Causes:</strong></p>
+            <ul>
+                <li>Incomplete or invalid OFA data during submission.</li>
+                <li>Conflicts in carrier or lane details.</li>
+            </ul>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>Review OFA Details:</strong> Validate the OFA file for missing or invalid fields.</li>
+                <li><strong>Resolve Conflicts:</strong> For overlapping lanes, revise specific entries before submitting.</li>
+                <li><strong>Track Unique Identifiers:</strong> Ensure unique OFA reference numbers are generated and linked to the correct contract.</li>
+            </ul>
+        </section>
+        
+    </div>
+    
+    
+
+    <script>
+        // Highlight the active section dynamically while scrolling
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".sidebar ul li a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            const offset = 80; // Adjust if necessary for your layout
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop - offset;
+                const sectionHeight = section.offsetHeight;
+
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active-section");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active-section");
+                }
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
