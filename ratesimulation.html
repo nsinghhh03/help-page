@@ -155,22 +155,21 @@
             <li><a href="rate-cube-user-guide.html" class="section-title">Overview</a></li>
             <li><span class="section-title">Rate Maintenance</span></li>
             <li><a href="ratemaintenance.html">Overview</a></li>
-            <li><a href="#key-features">Key Features</a></li>
-            <li><a href="#viewing-rates">Viewing Rates</a></li>
-            <li><a href="#uploading-rates">Uploading Rates</a></li>
-            <li><a href="#editing-rates">Editing Rates</a></li>
-            <li><a href="#bulk-upload">Bulk Upload</a></li>
-            <li><a href="#contract-details">Contract Details</a></li>
-            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><a href="ratemaintenance.html#key-features">Key Features</a></li>
+            <li><a href="ratemaintenance.html#active-rates">Active Rates</a></li>
+            <li><a href="ratemaintenance.html#draft-rates">Draft Rates</a></li>
+            <li><a href="ratemaintenance.html#uploading-rates">Editing Rates</a></li>
+            <li><a href="ratemaintenance.html#ofa-rfa-processes">OFA and RFA Processes</a></li>
+            <li><a href="ratemaintenance.html#troubleshooting">Troubleshooting</a></li>
             <li><span class="section-title">Rate Simulation</span></li>
-            <li><a href="#overview" class="sidebar-link">Overview</a></li>
-            <li><a href="#location-information" class="sidebar-link">Location Information</a></li>
-            <li><a href="#adding-shipment-details" class="sidebar-link">Adding Shipment Details</a></li>
-            <li><a href="#using-special-services" class="sidebar-link">Using Special Services</a></li>
-            <li><a href="#generating-simulations" class="sidebar-link">Generating Simulations</a></li>
-            <li><a href="#customizing-results" class="sidebar-link">Customizing Results</a></li>
-            <li><a href="#successful-rate-simulation" class="sidebar-link">Successful Rate Simulation</a></li>
-        </ul>
+            <li><a href="ratesimulation.html#overview" class="sidebar-link">Overview</a></li>
+            <li><a href="ratesimulation.html#location-information" class="sidebar-link">Location Information</a></li>
+            <li><a href="ratesimulation.html#adding-shipment-details" class="sidebar-link">Adding Shipment Details</a></li>
+            <li><a href="ratesimulation.html#using-special-services" class="sidebar-link">Using Special Services</a></li>
+            <li><a href="ratesimulation.html#generating-simulations" class="sidebar-link">Generating Simulations</a></li>
+            <li><a href="ratesimulation.html#customizing-results" class="sidebar-link">Customizing Results</a></li>
+            <li><a href="ratesimulation.html#successful-rate-simulation" class="sidebar-link">Successful Rate Simulation</a></li>
+        </ul>        
     </div>
 
     <!-- Content -->
@@ -293,18 +292,23 @@
         // Add event listeners for smooth scrolling
         document.querySelectorAll('.sidebar-link').forEach(link => {
             link.addEventListener('click', function (e) {
-                e.preventDefault(); // Prevent default anchor click behavior
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                
-                // Scroll to the target section
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    
-                // Update active link
+            const href = this.getAttribute('href');
+            const [page, sectionId] = href.split('#'); // Split into page and ID parts
+            
+            if (!page || window.location.pathname.endsWith(page)) {
+                // Same file or no file specified, scroll to section
+                e.preventDefault(); // Prevent default navigation
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                // Highlight active section
                 document.querySelectorAll('.sidebar-link').forEach(link => link.classList.remove('active-section'));
                 this.classList.add('active-section');
-            });
+            }
         });
+    });
     
         // Highlight active section on scroll
         const sections = document.querySelectorAll("section");
